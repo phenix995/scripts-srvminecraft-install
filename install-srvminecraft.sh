@@ -10,12 +10,10 @@ sudo apt install temurin-17-jdk -y
 
 echo "export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")" | sudo tee -a /etc/profile && source /etc/profile
 echo "export PATH=$PATH:$JAVA_HOME/bin" | sudo tee -a /etc/profile && source /etc/profile
-echo $JAVA_HOME
-echo $PATH
 
 #Install Minecraft Java Edition Server 1.18.2
 sudo mkdir /opt/minecraft
-sudo chown mcninja:mcninja /opt/minecraft
+sudo chown debian:debian /opt/minecraft
 
 cd /opt/minecraft
 wget https://launcher.mojang.com/v1/objects/c8f83c5655308435b3dcf03c06d9fe8740a77469/server.jar -O minecraft_server.1.18.2.jar
