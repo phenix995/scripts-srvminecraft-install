@@ -1,4 +1,10 @@
-git clone https://github.com/phenix995/scripts-linux.git
-chmod +x chmod.sh
-bash chmod.sh
-cp -r scripts-linux/ /home/debian/
+git clone https://github.com/phenix995/scripts-srvminecraft-install.git
+cp scripts-srvminecraft-install/install-srvminecraft.sh /home/debian/
+
+bash scripts-srvminecraft-install/install-fail2ban.sh
+bash scripts-srvminecraft-install/install-ufw.sh
+
+apt update
+apt upgrade -y
+apt autoremove -y
+reboot

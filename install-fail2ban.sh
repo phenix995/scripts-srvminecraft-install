@@ -1,14 +1,8 @@
 #run as root
-#based on https://www.vultr.com/docs/how-to-install-a-minecraft-server-on-debian-11/
 
-#Configure Firewall ufw
-ufw default deny
-ufw allow 1122
-ufw allow 11265
-ufw enable
-ufw status verbose
+apt update
+apt install -y fail2ban
 
-#Configure fail2ban
 cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 echo "ignoreip = 192.168.1.0/24" >> /etc/fail2ban/jail.local
 echo "[sshd]" >> /etc/fail2ban/jail.local
@@ -24,8 +18,4 @@ echo "bantime = 300" >> /etc/fail2ban/jail.d/ssh.conf
 echo "ignoreip = whitelist-IP" >> /etc/fail2ban/jail.d/ssh.conf
 
 systemctl start fail2ban
-
-apt update
-apt upgrade -y
-apt autoremove -y
-reboot
+systemctl enable fail2ban

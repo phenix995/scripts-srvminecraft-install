@@ -1,6 +1,4 @@
 #run as debian user
-#based on https://www.vultr.com/docs/how-to-install-a-minecraft-server-on-debian-11/
-
 
 #Install the Temurin 17 OpenJDK Distribution
 sudo apt install wget apt-transport-https -y
